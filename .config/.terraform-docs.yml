@@ -1,0 +1,44 @@
+formatter: "markdown document"
+
+version: ">= 0.20"
+
+output:
+  file: "README.md"
+  mode: replace
+
+sort:
+  enabled: false
+
+settings:
+  anchor: true
+  default: true
+  escape: true
+  hide-empty: true
+  html: true
+  indent: 2
+  lockfile: true
+  read-comments: true
+  required: true
+  sensitive: true
+  type: true
+
+sections:
+  hide:
+    - data-sources
+
+content: |-
+  ![Beta Status](https://img.shields.io/badge/Status-Beta-yellow)
+
+  # VKCS KMS Terraform modules
+  A set of Terraform modules for `KMS` in VKCS.
+
+  ## Usage
+  TODO
+
+  {{ .Requirements }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
