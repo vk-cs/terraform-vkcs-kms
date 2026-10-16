@@ -5,7 +5,7 @@ data "yandex_lockbox_secret_version" "secrets" {
 
 locals {
   entries = {
-    for secret_id, secret in data.yandex_lockbox_secret_version.tests :
+    for secret_id, secret in data.yandex_lockbox_secret_version.secrets :
     secret_id => sensitive({
       for entry in secret.entries : entry.key => entry.text_value
     })
