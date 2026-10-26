@@ -8,6 +8,13 @@ data "http" "secrets" {
   }
 }
 
+locals {
+  // If secrets variable is not set - retrieve secrets from lockbox
+  secrets = var.secrets != null ? var.secrets : toset([
+    for secret in jsondecode(data.http.secrets.response_body).secrets : secret.id
+  ])
+}
+
 data "yandex_lockbox_secret" "secrets" {
   for_each  = local.secrets
   secret_id = each.value
@@ -19,11 +26,6 @@ data "yandex_lockbox_secret_version" "secrets_data" {
 }
 
 locals {
-  // If secrets variable is not set - retrieve secrets from lockbox
-  secrets = var.secrets != null ? var.secrets : toset([
-    for secret in jsondecode(data.http.secrets.response_body).secrets : secret.id
-  ])
-
   resulting_secrets = {
     for secret_id in local.secrets :
     secret_id => {
@@ -36,8 +38,8 @@ locals {
 }
 
 resource "vkcs_kms_secret" "secrets" {
-  for_each          = local.secrets
-  path              = each.value
-  data_json         = jsonencode(local.resulting_secrets[each.key].entries)
+  for_each          = local.resulting_secrets
+  path              = each.key
+  data_json         = jsonencode(each.value.entries)
   delete_protection = local.resulting_secrets[each.key].delete_protection
 }
