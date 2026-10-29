@@ -2,6 +2,10 @@
 
 A set of Terraform modules for `KMS` in VKCS.
 
-## LB Migrator
+## LockBox Migrator
 
-This module makes it easy to migrate LockBox secrets to VKCS KMS
+This module makes it easy to migrate Yandex Cloud LockBox secrets to VKCS KMS
+
+## KeyManager Migrator
+
+This module makes it easy to migrate VKCS KeyManager secrets to VKCS KMS
