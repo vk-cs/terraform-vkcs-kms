@@ -1,0 +1,61 @@
+formatter: "markdown document"
+
+version: ">= 0.20"
+
+output:
+  file: "README.md"
+  mode: replace
+
+sort:
+  enabled: false
+
+settings:
+  anchor: true
+  default: true
+  escape: true
+  hide-empty: true
+  html: true
+  indent: 2
+  lockfile: true
+  read-comments: true
+  required: true
+  sensitive: true
+  type: true
+
+content: |-
+  ![Beta Status](https://img.shields.io/badge/Status-Beta-yellow)
+
+  # VKCS KMS LockBox migration Terraform module
+  A Terraform module for `KMS` in VKCS that migrates secret from Yandex Cloud LockBox.
+
+  ## Usage
+
+  ### All secrets to be migrated
+  ```hcl
+  {{ include "examples/all-secrets/main.tf" }}
+  ```
+
+  ### Specified secrets to be migrated
+  ```hcl
+  {{ include "examples/specified-secrets/main.tf" }}
+  ```
+
+  ## Examples
+  You can find examples in the [`examples`](./examples) directory on [GitHub](https://github.com/vk-cs/terraform-vkcs-kms/tree/v0.0.1/modules/lockbox-migrator/examples).
+
+  Running an example:
+  - Clone [GitHub repository](https://github.com/vk-cs/terraform-vkcs-kms) and checkout tag v0.0.1.
+    Or get [module archive](https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.0.1.zip) and unpack it.
+  - [Install Terraform](https://cloud.vk.com/docs/en/tools-for-using-services/terraform/quick-start). **Note**: You do not need `vkcs_provider.tf` to run module example.
+  - [Init Terraform](https://cloud.vk.com/docs/en/tools-for-using-services/terraform/quick-start#terraform_initialization) from the example folder.
+  - [Run Terraform](https://cloud.vk.com/docs/en/tools-for-using-services/terraform/quick-start#creating_resources_via_terraform) to create example resources.
+  - Check example output and explore created resources with `terraform show`, management console, CLI and API requests.
+  - Remove example resources with `terraform destroy -auto-approve --refresh=false`
+
+  {{ .Requirements }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
