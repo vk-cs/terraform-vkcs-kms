@@ -34,7 +34,7 @@ content: |-
 
   ## Usage
 
-  ### All secrets to be mifrated
+  ### All secrets to be migrated
   ```hcl
   {{ include "examples/all-secrets/main.tf" }}
   ```

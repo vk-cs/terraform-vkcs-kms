@@ -6,7 +6,7 @@ A Terraform module for `KMS` in VKCS that migrates secret from VKCS KeyManager.
 
 ## Usage
 
-### All secrets to be mifrated
+### All secrets to be migrated
 ```hcl
 module "keymanager_migrator" {
   source = "https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.0.1.zip//terraform-vkcs-kms-0.0.1/modules/keymanager-migrator"
