@@ -9,24 +9,24 @@ A Terraform module for `KMS` in VKCS that migrates secret from VKCS KeyManager.
 ### All secrets to be migrated
 ```hcl
 module "keymanager_migrator" {
-  source = "https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.0.1.zip//terraform-vkcs-kms-0.0.1/modules/keymanager-migrator"
+  source = "https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.0.2.zip//terraform-vkcs-kms-0.0.2/modules/keymanager-migrator"
 }
 ```
 
 ### Specified secrets to be migrated
 ```hcl
 module "keymanager-migrator" {
-  source  = "https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.0.1.zip//terraform-vkcs-kms-0.0.1/modules/keymanager-migrator"
+  source  = "https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.0.2.zip//terraform-vkcs-kms-0.0.2/modules/keymanager-migrator"
   secrets = ["76150cdb-1768-4e90-88f2-b4690c0893ee", "427eeaac-0775-40e9-a8ad-6ae175e7976b"]
 }
 ```
 
 ## Examples
-You can find examples in the [`examples`](./examples) directory on [GitHub](https://github.com/vk-cs/terraform-vkcs-kms/tree/v0.0.1/modules/keymanager-migrator/examples).
+You can find examples in the [`examples`](./examples) directory on [GitHub](https://github.com/vk-cs/terraform-vkcs-kms/tree/v0.0.2/modules/keymanager-migrator/examples).
 
 Running an example:
-- Clone [GitHub repository](https://github.com/vk-cs/terraform-vkcs-kms) and checkout tag v0.0.1.
-  Or get [module archive](https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.0.1.zip) and unpack it.
+- Clone [GitHub repository](https://github.com/vk-cs/terraform-vkcs-kms) and checkout tag v0.0.2.
+  Or get [module archive](https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.0.2.zip) and unpack it.
 - [Install Terraform](https://cloud.vk.com/docs/en/tools-for-using-services/terraform/quick-start). **Note**: You do not need `vkcs_provider.tf` to run module example.
 - [Init Terraform](https://cloud.vk.com/docs/en/tools-for-using-services/terraform/quick-start#terraform_initialization) from the example folder.
 - [Run Terraform](https://cloud.vk.com/docs/en/tools-for-using-services/terraform/quick-start#creating_resources_via_terraform) to create example resources.
