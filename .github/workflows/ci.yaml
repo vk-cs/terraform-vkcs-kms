@@ -1,4 +1,4 @@
-name: Terraform CI
+name: CI
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ on:
       - '*'
 
 jobs:
-  terraform:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
