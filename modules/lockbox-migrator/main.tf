@@ -9,7 +9,7 @@ data "http" "secrets" {
 }
 
 locals {
-  // If secrets variable is not set - retrieve secrets from lockbox
+  // If secrets variable is not set - retrieve secrets from Yandex Cloud LockBox
   secrets = var.secrets != null ? var.secrets : toset([
     for secret in jsondecode(data.http.secrets.response_body).secrets : secret.id
   ])

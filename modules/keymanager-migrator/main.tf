@@ -7,7 +7,7 @@ data "http" "secrets" {
 }
 
 locals {
-  // If secrets variable is not set - retrieve secrets from lockbox
+  // If secrets variable is not set - retrieve secrets from VKCS KeyManager
   secrets = var.secrets != null ? var.secrets : toset(compact([
     for secret in jsondecode(data.http.secrets.response_body).secrets :
     secret.secret_type == "opaque" ?
