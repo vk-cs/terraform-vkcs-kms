@@ -1,5 +1,7 @@
 # VKCS KMS Terraform modules
 
+[ci]: https://github.com/vk-cs/terraform-vkcs-kms/actions/workflows/ci.yaml/badge.svg
+
 A set of Terraform modules for `KMS` in VKCS.
 
 ## KeyManager Migrator
