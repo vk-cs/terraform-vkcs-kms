@@ -2,7 +2,9 @@
 ![Beta Status](https://img.shields.io/badge/Status-Beta-yellow)
 
 # VKCS KMS Vault migration Terraform module
-A Terraform module for `KMS` in VKCS that migrates secrets from HashiCorp Vault / OpenBao.
+A Terraform module for `KMS` in VKCS that migrates secrets from HashiCorp Vault / OpenBao KVv1.
+
+If the secrets variable is not set explicitly - only root-level secrets are migrated.
 
 ## Usage
 
@@ -10,7 +12,7 @@ A Terraform module for `KMS` in VKCS that migrates secrets from HashiCorp Vault 
 ```hcl
 module "vault_kvv1_migrator" {
   source = "https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.1.0.zip//terraform-vkcs-kms-0.1.0/modules/vault-kvv1-migrator"
-  mount = "secret"
+  mount  = "secret"
 }
 ```
 
@@ -19,12 +21,12 @@ module "vault_kvv1_migrator" {
 module "vault_kvv1_migrator" {
   source  = "https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.1.0.zip//terraform-vkcs-kms-0.1.0/modules/vault-kvv1-migrator"
   secrets = ["my-secret", "sample-text"]
-  mount = "secret"
+  mount   = "secret"
 }
 ```
 
 ## Examples
-You can find examples in the [`examples`](./examples) directory on [GitHub](https://github.com/vk-cs/terraform-vkcs-kms/tree/v0.1.0/modules/vault-migrator/examples).
+You can find examples in the [`examples`](./examples) directory on [GitHub](https://github.com/vk-cs/terraform-vkcs-kms/tree/v0.1.0/modules/vault-kvv1-migrator/examples).
 
 Running an example:
 - Clone [GitHub repository](https://github.com/vk-cs/terraform-vkcs-kms) and checkout tag v0.1.0.

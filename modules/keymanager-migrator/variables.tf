@@ -5,7 +5,7 @@ variable "secrets" {
 }
 
 variable "token" {
-  type = string
+  type        = string
   description = "VKCS API token"
-  sensitive = true
+  sensitive   = true
 }
