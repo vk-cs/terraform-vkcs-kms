@@ -1,6 +1,7 @@
 data "yandex_client_config" "yc_creds" {}
 
 data "http" "secrets" {
+  count  = var.secrets == null ? 1 : 0
   url    = "https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets?pageSize=1000&folderId=${data.yandex_client_config.yc_creds.folder_id}"
   method = "GET"
   request_headers = {
@@ -9,9 +10,10 @@ data "http" "secrets" {
 }
 
 locals {
-  // If secrets variable is not set - retrieve secrets from lockbox
+  // If secrets variable is not set - retrieve secrets from Yandex Cloud LockBox
+  // data.http.secrets has a [0] index because count meta makes it a list of lists
   secrets = var.secrets != null ? var.secrets : toset([
-    for secret in jsondecode(data.http.secrets.response_body).secrets : secret.id
+    for secret in jsondecode(data.http.secrets[0].response_body).secrets : secret.id
   ])
 }
 

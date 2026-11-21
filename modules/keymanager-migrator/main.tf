@@ -1,4 +1,5 @@
 data "http" "secrets" {
+  count  = var.secrets == null ? 1 : 0
   url    = "https://msk.cloud.vk.ru/infra/keymanager/v1/secrets?limit=100"
   method = "GET"
   request_headers = {
@@ -7,9 +8,10 @@ data "http" "secrets" {
 }
 
 locals {
-  // If secrets variable is not set - retrieve secrets from lockbox
+  // If secrets variable is not set - retrieve secrets from VKCS KeyManager
+  // data.http.secrets has a [0] index because count meta makes it a list of lists
   secrets = var.secrets != null ? var.secrets : toset(compact([
-    for secret in jsondecode(data.http.secrets.response_body).secrets :
+    for secret in jsondecode(data.http.secrets[0].response_body).secrets :
     secret.secret_type == "opaque" ?
     basename(secret.secret_ref) :
     ""

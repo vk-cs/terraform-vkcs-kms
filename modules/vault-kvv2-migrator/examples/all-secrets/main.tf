@@ -1,0 +1,4 @@
+module "vault_kvv2_migrator" {
+  source = "https://github.com/vk-cs/terraform-vkcs-kms/archive/refs/tags/v0.1.0.zip//terraform-vkcs-kms-0.1.0/modules/vault-kvv2-migrator"
+  mount  = "secret"
+}
