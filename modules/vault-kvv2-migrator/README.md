@@ -4,7 +4,7 @@
 # VKCS KMS Vault migration Terraform module
 A Terraform module for `KMS` in VKCS that migrates secrets from HashiCorp Vault / OpenBao KVv2.
 
-If the secrets variable is not set explicitly - only root-level secrets are migrated.
+*If the secrets variable is not set explicitly - only root-level secrets are migrated!*
 
 ## Usage
 
